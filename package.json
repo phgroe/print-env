@@ -1,0 +1,22 @@
+{
+	"name": "print-env",
+	"version": "0.1.0",
+	"description": "Prints environment variables and their values through a logger function, after filtering them for (most probably) unrelated things",
+	"main": "printenv.js",
+	"typings": "index.d.ts",
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/phgroe/print-env.git"
+	},
+	"keywords": [
+		"debug",
+		"environment",
+		"filter"
+	],
+	"author": "Philipp Gröschler",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/phgroe/print-env/issues"
+	},
+	"homepage": "https://github.com/phgroe/print-env#readme"
+}
