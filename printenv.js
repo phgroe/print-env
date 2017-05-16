@@ -57,4 +57,5 @@ function printEnvironment(logger) {
 	});
 }
 
-exports.default = printEnvironment;
+module.exports = printEnvironment;
+module.exports.default = printEnvironment;
