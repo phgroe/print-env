@@ -1,8 +1,9 @@
 [![npm version](https://badge.fury.io/js/print-env.svg)](https://badge.fury.io/js/print-env)
 
 ## Print Environment
+Logs all environment variables except a predefined set commonly present on Linux/Unix.
 
-#### Node.js module for printing out a filtered set of environment variables
+Useful for debugging only the environment variables relevant to your application.
 
 Helpful during the start phase of your application, if you happen to configure your app through
 environment variables (which is common for apps deployed to The Cloud™). A typical Linux/Unix
@@ -32,28 +33,40 @@ const printEnv = require('print-env');
 const log = require('debug')('app:env');
 
 printEnv(log);
+
+// app:env DEBUG = *,-express:* +3ms
+// app:env DIFF = /usr/bin/meld +0ms
+// app:env HOME = /home/horst +0ms
+// app:env LANG = nb_NO.utf8 +1ms
+// app:env LANGUAGE = nb_NO +0ms
+// app:env MAIL = /var/mail/horst +0ms
+// app:env NODE_ENV = development +0ms
+// app:env PATH = /usr/local/bin:/usr/bin:/bin +0ms
+// app:env PWD = /home/horst/test +1ms
+// app:env USER = horst +0ms
 ```
 
 A declaration for [TypeScript](http://www.typescriptlang.org) is included. The use then is the same
 as with the ES6 `import` syntax:
 ```javascript
 import printEnv from 'print-env';
+import createDebug from 'debug';
+
+const debug = createDebug('app:env');
+
+// app:env DEBUG = *,-express:* +3ms
+// app:env DIFF = /usr/bin/meld +0ms
+// app:env HOME = /home/horst +0ms
+// app:env LANG = nb_NO.utf8 +1ms
+// app:env LANGUAGE = nb_NO +0ms
+// app:env MAIL = /var/mail/horst +0ms
+// app:env NODE_ENV = development +0ms
+// app:env PATH = /usr/local/bin:/usr/bin:/bin +0ms
+// app:env PWD = /home/horst/test +1ms
+// app:env USER = horst +0ms
 ```
 
-Example output when using [debug](https://github.com/visionmedia/debug) as "sink":
-```
-app:env DEBUG = *,-express:* +3ms
-app:env DIFF = /usr/bin/meld +0ms
-app:env HOME = /home/horst +0ms
-app:env LANG = nb_NO.utf8 +1ms
-app:env LANGUAGE = nb_NO +0ms
-app:env MAIL = /var/mail/horst +0ms
-app:env NODE_ENV = development +0ms
-app:env PATH = /usr/local/bin:/usr/bin:/bin +0ms
-app:env PWD = /home/horst/test +1ms
-app:env USER = horst +0ms
-```
-The output is taken from a box where the environment contains nearly a hundred exported variables.
+The example output above is taken from a box where the environment contains nearly a hundred exported variables.
 Most of it is gone here, the basic stuff (like _HOME_ or _PWD_) was left in.
 
 #### The Negative-List
