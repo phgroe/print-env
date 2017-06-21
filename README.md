@@ -1,3 +1,5 @@
+[![npm version](https://badge.fury.io/js/print-env.svg)](https://badge.fury.io/js/print-env)
+
 ## Print Environment
 
 #### Node.js module for printing out a filtered set of environment variables
