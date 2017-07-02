@@ -12,6 +12,9 @@ function printEnvironment(logger) {
 		'DESKTOP_.+',
 		'DISPLAY',
 		'EDITOR',
+		'EIX_.+',
+		'ES_BASHCOMP_.+',
+		'FLTK_.+',
 		'GCC_.+',
 		'GIT.+',
 		'GSETTINGS_.+',
@@ -26,11 +29,12 @@ function printEnvironment(logger) {
 		'LADSPA_.+',
 		'LC_.+',
 		'LESS.*',
+		'LS_COLORS',
 		'MAN.+',
 		'MULTIOSDIRS',
 		'npm_.+',
 		'OLDPWD',
-		'OPENGL_.+',
+		'OPEN[ACG]L_.+',
 		'PAGER',
 		'PAM_.+',
 		'PAPERSIZE',
@@ -45,10 +49,13 @@ function printEnvironment(logger) {
 		'SHLVL',
 		'SSH_.+',
 		'TERM',
+		'VBOX_.+',
 		'WINDOWID',
+		'WINE.+',
 		'XAUTHORITY',
 		'XCURSOR_.+',
 		'XDG_.+',
+		'XSESSION',
 	];
 
 	const negMatch = new RegExp('^(?:' + negList.join('|') + ')$');
@@ -61,3 +68,5 @@ function printEnvironment(logger) {
 
 module.exports = printEnvironment;
 module.exports.default = printEnvironment;
+
+// vim: set ts=2 ft=javascript fenc=utf8:
