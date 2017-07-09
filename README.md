@@ -1,3 +1,5 @@
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+&nbsp;
 [![npm version](https://badge.fury.io/js/print-env.svg)](https://badge.fury.io/js/print-env)
 
 ## Print Environment
