@@ -1,4 +1,4 @@
-function printEnvironment(logger) {
+function printEnvironment(logger, printEmpty) {
 	if (typeof logger !== 'function') {
 		throw new TypeError('Logger parameter must be a function');
 	}
@@ -11,6 +11,7 @@ function printEnvironment(logger) {
 		'DBUS_.+',
 		'DESKTOP_.+',
 		'DISPLAY',
+		'DISTCC_.+',
 		'EDITOR',
 		'EIX_.+',
 		'ES_BASHCOMP_.+',
@@ -20,6 +21,7 @@ function printEnvironment(logger) {
 		'GSETTINGS_.+',
 		'GS_LIB',
 		'GTK[0-9]?_.+',
+		'HIST(?:CONTROL|FILESIZE|SIZE)',
 		'INFOPATH',
 		'JAVA.+',
 		'JDK_.+',
@@ -62,6 +64,7 @@ function printEnvironment(logger) {
 
 	Object.keys(process.env).sort().forEach(function (name) {
 		if (negMatch.test(name)) return;
+		if (process.env[name] === '' && printEmpty !== true) return;
 		logger(name + ' = ' + process.env[name]);
 	});
 }

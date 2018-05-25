@@ -1,6 +1,6 @@
 {
 	"name": "print-env",
-	"version": "0.1.1",
+	"version": "0.1.2",
 	"description": "Prints environment variables and their values through a logger function, after filtering them for (most probably) unrelated things",
 	"main": "printenv.js",
 	"typings": "index.d.ts",
