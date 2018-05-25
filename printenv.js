@@ -1,4 +1,4 @@
-function printEnvironment(logger) {
+function printEnvironment(logger, printEmpty) {
 	if (typeof logger !== 'function') {
 		throw new TypeError('Logger parameter must be a function');
 	}
@@ -64,6 +64,7 @@ function printEnvironment(logger) {
 
 	Object.keys(process.env).sort().forEach(function (name) {
 		if (negMatch.test(name)) return;
+		if (process.env[name] === '' && printEmpty !== true) return;
 		logger(name + ' = ' + process.env[name]);
 	});
 }
